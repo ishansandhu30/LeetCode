@@ -1,15 +1,18 @@
-int cmpfunc( const void *a, const void *b) {
-  return *(char*)a - *(char*)b;
-}
+
 bool isAnagram(char * s, char * t){
-    qsort(s, (size_t) strlen(s), (size_t) sizeof(char), cmpfunc);
-    qsort(t, (size_t) strlen(t), (size_t) sizeof(char), cmpfunc);
-    int result = strcmp(t, s);
-  
-    if(result == 0){
-        return true;
-    }else{
+   int table[26] = {0};
+    
+    if(strlen(s) != strlen(t))
         return false;
+
+    while(*s)
+        table[*(s++) - 'a']++;
+    
+    while(*t)
+    {
+        if(--table[*(t++) - 'a'] < 0)
+            return false;
     }
-    return false;
+    
+    return true;
 }

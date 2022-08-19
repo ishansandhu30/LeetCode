@@ -1,5 +1,4 @@
 
-
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         letters_to_words = defaultdict(list)

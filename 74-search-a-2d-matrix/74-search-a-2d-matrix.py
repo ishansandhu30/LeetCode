@@ -3,9 +3,10 @@ class Solution:
         low = 0
         high = len(matrix)-1
         columns = len(matrix[0])
+        middle = 0
         while(low<=high):
             mid = (low+high)//2
-            
+            middle = mid
             if matrix[mid][0] == target:
                 return True
             if matrix[mid][0]>target:
@@ -13,7 +14,7 @@ class Solution:
             if matrix[mid][0]<target:
                 low = mid + 1
             for i in range(1,columns):
-                if matrix[mid][i] == target:
+                if matrix[middle][i] == target:
                     return True
             
         return False

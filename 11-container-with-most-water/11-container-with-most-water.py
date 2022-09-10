@@ -10,7 +10,7 @@ class Solution:
                 area = max(area, height[left]*n)
                 left+=1
                 n-=1
-            elif min(height[left],height[right]) == height[right]:
+            else:
                 area = max(area, height[right]*n)
                 right-=1
                 n-=1
